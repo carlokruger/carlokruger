@@ -12,35 +12,17 @@ import { myLoader } from "@/utils/all";
 
 export default function Navbar(props) {
   const leftmenu = [
-    {
-      label: "Home",
-      href: "/"
-    },
-    {
-      label: "About",
-      href: "/about"
-    },
-    {
-      label: "Contact",
-      href: "/contact"
-    }
+    
   ];
 
   const rightmenu = [
     {
-      label: "Archive",
+      label: "contact",
+      href: "/contact"
+    },
+    {
+      label: "thoughts",
       href: "/archive"
-    },
-    {
-      label: "Pro Version",
-      href: "https://stablo-pro.web3templates.com/",
-      external: true,
-      badge: "new"
-    },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
     }
   ];
 
@@ -76,34 +58,22 @@ export default function Navbar(props) {
                   ))}
                 </div>
                 <div className="flex w-full items-center justify-between md:w-auto">
-                  <Link href="/" className="w-28 dark:hidden">
-                    {props.logo ? (
-                      <Image
-                        {...urlForImage(props.logo)}
-                        alt="Logo"
-                        priority={true}
-                        sizes="(max-width: 640px) 100vw, 200px"
-                      />
-                    ) : (
-                      <span className="block text-center">
-                        Stablo
-                      </span>
-                    )}
-                  </Link>
-                  <Link href="/" className="hidden w-28 dark:block">
-                    {props.logoalt ? (
-                      <Image
-                        {...urlForImage(props.logoalt)}
-                        alt="Logo"
-                        priority={true}
-                        sizes="(max-width: 640px) 100vw, 200px"
-                      />
-                    ) : (
-                      <span className="block text-center">
-                        Stablo
-                      </span>
-                    )}
-                  </Link>
+                <Link href="/" className="w-28 dark:hidden">
+  <img
+    src="/img/carlokruger-high-resolution-logo-white.svg"
+    alt="carlo kruger"
+    loading="eager"
+    className="w-full"
+  />
+</Link>
+<Link href="/" className="hidden w-28 dark:block">
+  <img
+    src="/img/carlokruger-high-resolution-logo-white.svg"
+    alt="carlo kruger"
+    loading="eager"
+    className="w-full"
+  />
+</Link>
                   <Disclosure.Button
                     aria-label="Toggle Menu"
                     className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-gray-300 md:hidden ">
