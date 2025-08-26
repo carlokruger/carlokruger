@@ -122,19 +122,12 @@ export async function getTopCategories() {
 
 export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   if (client) {
-    // Test with simpler query first
-    const testQuery = '*[_type == "post"]';
-    const allPosts = await client.fetch(testQuery);
-    console.log('All posts found:', allPosts.length);
-    console.log('Sample post:', allPosts[0]);
-    
-    const result = (await client.fetch(paginatedquery, {
-      pageIndex: pageIndex,
-      limit: limit
-    })) || [];
-    console.log('getPaginatedPosts result:', result.length, 'posts');
-    console.log('Query params:', { pageIndex, limit });
-    return result;
+    return (
+      (await client.fetch(paginatedquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
   }
   return [];
 }
