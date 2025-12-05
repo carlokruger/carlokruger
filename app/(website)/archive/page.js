@@ -8,6 +8,8 @@ export const dynamic = "force-dynamic";
 // export const runtime = "edge";
 
 export default async function ArchivePage({ searchParams }) {
+  const resolvedSearchParams = await searchParams;
+  
   return (
     <>
       <Container className="relative">
@@ -20,9 +22,9 @@ export default async function ArchivePage({ searchParams }) {
           </p>
         </div>
         <Suspense
-          key={searchParams.page || "1"}
+          key={resolvedSearchParams.page || "1"}
           fallback={<Loading />}>
-          <Archive searchParams={searchParams} />
+          <Archive searchParams={resolvedSearchParams} />
         </Suspense>
       </Container>
     </>
